@@ -1,0 +1,29 @@
+<GCS-header></GCS-header>
+<p>مرحبا بك في {{hotel_name}}</p>
+<button (click)="toggle()">إظهار عدد الغرف</button>
+<div [hidden]="hide_rooms">
+    :عدد الغرف
+    <div [innerText]="No_rooms">
+    
+    </div>
+</div>
+
+<div *ngIf="selectedRoom">
+    {{selectedRoom|json}}
+</div>
+<div>
+    <button (click)="addRoom()">إضافة غرفة</button>
+</div>
+{{ rooms?.availabelRooms ?? 'لا توجد غرف متاحة'}}
+
+<div *ngIf="rooms.availabelRooms>0">
+<GCS-rooms-list [rooms] = "roomList" [title]="'قائمة الغرف'"
+(selectedRoom)="selectRoom($event)"
+>
+
+
+
+</GCS-rooms-list>
+</div>
+
+

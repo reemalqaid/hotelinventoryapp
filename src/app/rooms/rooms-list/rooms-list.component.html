@@ -1,0 +1,27 @@
+<h2>{{title}}</h2>
+ <!-- {{roomList}} -->
+ <table class="table">
+    <tr [ngClass]="'evev'" >
+    <th>رقم الغرفة</th>
+    <th>نوع الغرفة</th>
+    <th>مواصفات الغرفة</th>
+    <th>وقت الحجز</th>
+    <th>السعر</th>
+    <th>تفاصيل الغرفة</th>
+</tr>
+<tr [ngClass]="'odd'" 
+*ngFor="let room of rooms">
+    <td>{{room.roomNo}} </td>
+    <td>{{room.roomType}} </td>
+    <td>{{room.amenities}} </td>
+    <td>{{room.checkInTime |date:'short'}} </td>
+    <td>{{room.price | currency: "SR"}} </td>
+    <td> 
+        <button class="btn btn-primary"
+        (click)="selectRoom(room)">
+        عرض التفاصيل
+    </button>
+    </td>
+
+</tr>
+ </table>
